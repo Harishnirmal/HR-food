@@ -1,0 +1,6 @@
+{
+  "name": "Hari Restaurant",
+  "description": "Premium South Indian family restaurant with signature Chettinad & Malabar non-veg and pure veg delicacies, online food ordering, WhatsApp order integration, customer accounts, and restaurant admin management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
