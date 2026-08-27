@@ -2,18 +2,28 @@
 
 @layer base {
   :root {
-    --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'DM Serif Display', Georgia, serif;
+    --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+    
+    /* Palette Tokens */
+    --color-primary: #183A32;
+    --color-secondary: #B85C38;
+    --color-bg-main: #F8F3E8;
+    --color-bg-secondary: #E9DDC7;
+    --color-accent: #C49A52;
+    --color-text-main: #24221F;
+    --color-card: #FFFDF8;
+    --color-success: #3F7D58;
   }
 
   body {
     font-family: var(--font-sans);
-    color: #1F2421;
-    background-color: #FAF7F2;
+    color: #24221F;
+    background-color: #F8F3E8;
     -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, .font-serif {
+  h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
@@ -33,14 +43,14 @@
   height: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #F1EAE0;
+  background: #E9DDC7;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #D5C7B5;
+  background: #C49A52;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #BFAEA0;
+  background: #B85C38;
 }
 
 @keyframes pulse-subtle {
