@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { openWhatsAppOrder } from '../../utils/whatsapp';
+import { openWhatsAppOrder, formatWhatsAppPhone } from '../../utils/whatsapp';
 import { 
   ArrowRight, 
   MessageCircle, 
@@ -14,7 +14,7 @@ import {
 
 export const Hero: React.FC = () => {
   const { setCurrentView, settings } = useApp();
-  const cleanWhatsappNumber = settings.whatsapp_number.replace(/[^0-9]/g, '');
+  const cleanWhatsappNumber = formatWhatsAppPhone(settings.whatsapp_number);
 
   return (
     <div className="relative overflow-hidden bg-[#FCF8F5] border-b border-[#F2DDD0] py-12 lg:py-20">

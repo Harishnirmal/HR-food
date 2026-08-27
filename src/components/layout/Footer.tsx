@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { HariLogo } from '../common/HariLogo';
+import { formatWhatsAppPhone } from '../../utils/whatsapp';
 import { 
   Phone, 
   Mail, 
@@ -16,7 +17,7 @@ import {
 
 export const Footer: React.FC = () => {
   const { settings, categories, setCurrentView, setSelectedCategorySlug } = useApp();
-  const cleanWhatsappNumber = settings.whatsapp_number.replace(/[^0-9]/g, '');
+  const cleanWhatsappNumber = formatWhatsAppPhone(settings.whatsapp_number);
 
   return (
     <footer className="bg-[#2B0707] text-[#FDEEE4] pt-16 pb-12 border-t-4 border-[#EA580C]">

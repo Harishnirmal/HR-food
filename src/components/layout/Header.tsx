@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { HariLogo } from '../common/HariLogo';
+import { formatWhatsAppPhone } from '../../utils/whatsapp';
 import { 
   ShoppingBag, 
   Search, 
@@ -41,7 +42,7 @@ export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  const cleanWhatsappNumber = settings.whatsapp_number.replace(/[^0-9]/g, '');
+  const cleanWhatsappNumber = formatWhatsAppPhone(settings.whatsapp_number);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FCF8F5]/95 backdrop-blur-md border-b border-[#F2DDD0] shadow-xs">

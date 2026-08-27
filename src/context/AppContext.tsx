@@ -185,7 +185,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [settings, setSettings] = useState<RestaurantSettings>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-      return saved ? JSON.parse(saved) : INITIAL_SETTINGS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Automatically migrate if previous placeholder number was cached in browser
+        if (!parsed.whatsapp_number || parsed.whatsapp_number.includes('9840123456')) {
+          parsed.whatsapp_number = '+919345576736';
+          parsed.phone = '+91 93455 76736';
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(parsed));
+        }
+        return parsed;
+      }
+      return INITIAL_SETTINGS;
     } catch {
       return INITIAL_SETTINGS;
     }

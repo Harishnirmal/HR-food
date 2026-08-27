@@ -5,13 +5,13 @@ export const INITIAL_SETTINGS: RestaurantSettings = {
   restaurant_name: 'Hari Restaurant',
   tagline: 'Finest South Indian, Chettinad & Malabar Non-Veg & Veg Delicacies',
   logo_url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=150&auto=format&fit=crop&q=80',
-  phone: '+91 98401 23456',
+  phone: '+91 93455 76736',
   email: 'orders@harirestaurant.in',
   address: '48, Heritage Trunk Road, Gandhi Nagar',
   landmark: 'Near Central Clock Tower',
   city: 'Chennai',
   pincode: '600020',
-  whatsapp_number: '+919840123456', // Restaurant WhatsApp contact for direct ordering
+  whatsapp_number: '+919345576736', // Restaurant WhatsApp contact for direct ordering
   delivery_fee: 30,
   minimum_order: 100,
   free_delivery_threshold: 400,

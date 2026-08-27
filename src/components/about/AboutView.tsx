@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
+import { formatWhatsAppPhone } from '../../utils/whatsapp';
 import { 
   Sparkles, 
   Heart, 
@@ -15,7 +16,7 @@ import {
 
 export const AboutView: React.FC = () => {
   const { settings, setCurrentView } = useApp();
-  const cleanWhatsappNumber = settings.whatsapp_number.replace(/[^0-9]/g, '');
+  const cleanWhatsappNumber = formatWhatsAppPhone(settings.whatsapp_number);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16">

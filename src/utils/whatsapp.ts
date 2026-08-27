@@ -78,11 +78,22 @@ export function generateWhatsAppOrderMessage(order: Order, settings: RestaurantS
 }
 
 /**
+ * Sanitizes phone number to international wa.me format (defaults to India +91 if 10 digits)
+ */
+export function formatWhatsAppPhone(phone: string): string {
+  const clean = phone.replace(/[^0-9]/g, '');
+  if (clean.length === 10) {
+    return `91${clean}`;
+  }
+  return clean || '919345576736';
+}
+
+/**
  * Sanitizes phone number and opens WhatsApp web/app in a new tab/window
  */
 export function openWhatsAppOrder(order: Order, settings: RestaurantSettings): string {
   const message = generateWhatsAppOrderMessage(order, settings);
-  const cleanPhone = settings.whatsapp_number.replace(/[^0-9]/g, '');
+  const cleanPhone = formatWhatsAppPhone(settings.whatsapp_number);
   const encodedText = encodeURIComponent(message);
   
   // Return standard WhatsApp web link
