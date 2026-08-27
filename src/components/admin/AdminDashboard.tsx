@@ -216,13 +216,13 @@ export const AdminDashboard: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       
       {/* Top Banner */}
-      <div className="bg-[#183928] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#941B1B] via-[#7C1313] to-[#EA580C] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-[#E6C687] text-[#183928] uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-white text-[#EA580C] uppercase tracking-wider">
               Admin Portal
             </span>
-            <span className="text-xs text-[#A8C4B5]">• Real-Time Kitchen Operations</span>
+            <span className="text-xs text-stone-200">• Real-Time Kitchen Operations</span>
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold mt-1">
             {settings.restaurant_name} Management
@@ -239,7 +239,7 @@ export const AdminDashboard: React.FC = () => {
           </div>
           <button
             onClick={toggleRestaurantOpen}
-            className={`w-12 h-7 rounded-full transition-colors relative p-1 ${
+            className={`w-12 h-7 rounded-full transition-colors relative p-1 cursor-pointer ${
               settings.is_open ? 'bg-emerald-500' : 'bg-rose-500'
             }`}
           >
@@ -254,18 +254,18 @@ export const AdminDashboard: React.FC = () => {
 
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-2xl border border-[#E8DFD3] shadow-xs">
+        <div className="bg-white p-5 rounded-2xl border border-[#F2DDD0] shadow-xs">
           <div className="flex items-center justify-between text-stone-500 text-xs font-semibold">
             <span>Total Orders</span>
-            <ShoppingBag className="w-4 h-4 text-[#C85A32]" />
+            <ShoppingBag className="w-4 h-4 text-[#EA580C]" />
           </div>
-          <p className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-2">
+          <p className="font-serif text-2xl sm:text-3xl font-bold text-[#231815] mt-2">
             {todayOrdersCount}
           </p>
           <p className="text-[11px] text-stone-400 mt-1">All time received</p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-[#E8DFD3] shadow-xs">
+        <div className="bg-white p-5 rounded-2xl border border-[#F2DDD0] shadow-xs">
           <div className="flex items-center justify-between text-stone-500 text-xs font-semibold">
             <span>Active in Kitchen</span>
             <Clock className="w-4 h-4 text-amber-500" />
@@ -276,23 +276,23 @@ export const AdminDashboard: React.FC = () => {
           <p className="text-[11px] text-stone-400 mt-1">Pending & Out for delivery</p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-[#E8DFD3] shadow-xs">
+        <div className="bg-white p-5 rounded-2xl border border-[#F2DDD0] shadow-xs">
           <div className="flex items-center justify-between text-stone-500 text-xs font-semibold">
             <span>Total Revenue</span>
             <TrendingUp className="w-4 h-4 text-emerald-600" />
           </div>
-          <p className="font-serif text-2xl sm:text-3xl font-bold text-[#183928] mt-2">
+          <p className="font-serif text-2xl sm:text-3xl font-bold text-[#941B1B] mt-2">
             ₹{totalRevenue.toLocaleString()}
           </p>
           <p className="text-[11px] text-stone-400 mt-1">WhatsApp & COD billings</p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-[#E8DFD3] shadow-xs">
+        <div className="bg-white p-5 rounded-2xl border border-[#F2DDD0] shadow-xs">
           <div className="flex items-center justify-between text-stone-500 text-xs font-semibold">
             <span>Active Menu Items</span>
-            <Utensils className="w-4 h-4 text-[#8F4A2D]" />
+            <Utensils className="w-4 h-4 text-[#EA580C]" />
           </div>
-          <p className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-2">
+          <p className="font-serif text-2xl sm:text-3xl font-bold text-[#231815] mt-2">
             {products.length}
           </p>
           <p className="text-[11px] text-stone-400 mt-1">Across {categories.length} categories</p>
@@ -300,13 +300,13 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Main Tabs Navigation */}
-      <div className="flex items-center gap-2 border-b border-[#E8DFC8] pb-3 overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-2 border-b border-[#F2DDD0] pb-3 overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTab('orders')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
             activeTab === 'orders'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <ShoppingBag className="w-4 h-4" />
@@ -315,10 +315,10 @@ export const AdminDashboard: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('products')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
             activeTab === 'products'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <Utensils className="w-4 h-4" />
@@ -327,10 +327,10 @@ export const AdminDashboard: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('categories')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
             activeTab === 'categories'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -339,10 +339,10 @@ export const AdminDashboard: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('settings')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
             activeTab === 'settings'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <Settings className="w-4 h-4" />

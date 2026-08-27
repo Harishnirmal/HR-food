@@ -68,10 +68,10 @@ export const MenuView: React.FC = () => {
       
       {/* Category Nav Header */}
       <div className="space-y-2">
-        <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#183928]">
+        <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#941B1B]">
           {selectedCategory ? selectedCategory.name : 'Complete Dining Menu'}
         </h1>
-        <p className="text-xs sm:text-sm text-stone-600">
+        <p className="text-xs sm:text-sm text-[#6E564F]">
           {selectedCategory ? selectedCategory.description : 'Freshly prepared traditional South Indian delicacies, dosas, thalis & biriyanis.'}
         </p>
       </div>
@@ -80,7 +80,7 @@ export const MenuView: React.FC = () => {
       <CategoryNav />
 
       {/* Search & Filter Toolbar */}
-      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-[#ECE3D5] shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-[#F2DDD0] shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
         
         {/* Search Input */}
         <div className="relative flex-1">
@@ -90,7 +90,7 @@ export const MenuView: React.FC = () => {
             placeholder="Search dosas, biriyanis, thali, filter coffee..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-9 py-2 rounded-xl border border-stone-200 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#183928]"
+            className="w-full pl-10 pr-9 py-2 rounded-xl border border-stone-200 text-xs sm:text-sm text-[#231815] placeholder:text-[#826A62]/60 focus:outline-none focus:border-[#EA580C]"
           />
           {searchQuery && (
             <button
@@ -111,7 +111,7 @@ export const MenuView: React.FC = () => {
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
               dietaryFilter === 'veg'
                 ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
-                : 'bg-[#FAF7F2] text-stone-700 border-stone-200 hover:border-stone-400'
+                : 'bg-[#FCF8F5] text-[#6E564F] border-[#F2DDD0] hover:border-[#EA580C]'
             }`}
           >
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />
@@ -123,11 +123,11 @@ export const MenuView: React.FC = () => {
             onClick={() => setDietaryFilter(dietaryFilter === 'non-veg' ? 'all' : 'non-veg')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
               dietaryFilter === 'non-veg'
-                ? 'bg-amber-900 text-white border-amber-900 shadow-xs'
-                : 'bg-[#FAF7F2] text-stone-700 border-stone-200 hover:border-stone-400'
+                ? 'bg-[#941B1B] text-white border-[#941B1B] shadow-xs'
+                : 'bg-[#FCF8F5] text-[#6E564F] border-[#F2DDD0] hover:border-[#EA580C]'
             }`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#EA580C] inline-block" />
             <span>Non-Veg</span>
           </button>
 
@@ -136,8 +136,8 @@ export const MenuView: React.FC = () => {
             onClick={() => setBestsellerOnly(!bestsellerOnly)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
               bestsellerOnly
-                ? 'bg-[#C85A32] text-white border-[#C85A32] shadow-xs'
-                : 'bg-[#FAF7F2] text-stone-700 border-stone-200 hover:border-stone-400'
+                ? 'bg-gradient-to-r from-[#EA580C] to-[#C2410C] text-white border-[#EA580C] shadow-xs'
+                : 'bg-[#FCF8F5] text-[#6E564F] border-[#F2DDD0] hover:border-[#EA580C]'
             }`}
           >
             <Flame className="w-3.5 h-3.5" />
@@ -149,7 +149,7 @@ export const MenuView: React.FC = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="px-3 py-1.5 rounded-xl border border-stone-200 bg-[#FAF7F2] text-xs font-semibold text-stone-700 focus:outline-none focus:border-[#183928]"
+              className="px-3 py-1.5 rounded-xl border border-[#F2DDD0] bg-[#FCF8F5] text-xs font-semibold text-[#6E564F] focus:outline-none focus:border-[#EA580C]"
             >
               <option value="recommended">Recommended</option>
               <option value="price-low">Price: Low to High</option>
@@ -162,7 +162,7 @@ export const MenuView: React.FC = () => {
       </div>
 
       {/* Active filter count bar */}
-      <div className="flex items-center justify-between text-xs text-stone-500 px-1">
+      <div className="flex items-center justify-between text-xs text-[#826A62] px-1">
         <span>Showing {filteredProducts.length} dishes</span>
         {(selectedCategorySlug || dietaryFilter !== 'all' || bestsellerOnly || searchQuery) && (
           <button
@@ -172,7 +172,7 @@ export const MenuView: React.FC = () => {
               setBestsellerOnly(false);
               setSearchQuery('');
             }}
-            className="text-[#C85A32] font-bold hover:underline"
+            className="text-[#EA580C] font-bold hover:underline"
           >
             Clear all filters
           </button>
@@ -181,15 +181,15 @@ export const MenuView: React.FC = () => {
 
       {/* Products Grid */}
       {filteredProducts.length === 0 ? (
-        <div className="bg-white rounded-3xl border border-[#ECE3D5] p-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-[#F4ECE1] text-[#8F4A2D] flex items-center justify-center mx-auto text-2xl font-bold">
+        <div className="bg-white rounded-3xl border border-[#F2DDD0] p-12 text-center space-y-4">
+          <div className="w-16 h-16 rounded-2xl bg-[#FDEEE4] text-[#941B1B] flex items-center justify-center mx-auto text-2xl font-bold">
             🔍
           </div>
           <div className="space-y-1">
-            <h3 className="font-serif text-lg font-bold text-stone-800">
+            <h3 className="font-serif text-lg font-bold text-[#231815]">
               No dishes found
             </h3>
-            <p className="text-xs text-stone-500 max-w-sm mx-auto">
+            <p className="text-xs text-[#826A62] max-w-sm mx-auto">
               We couldn't find any dishes matching your filters. Try resetting the filters or searching for something else.
             </p>
           </div>
@@ -200,7 +200,7 @@ export const MenuView: React.FC = () => {
               setBestsellerOnly(false);
               setSearchQuery('');
             }}
-            className="px-5 py-2.5 rounded-xl bg-[#183928] text-white font-bold text-xs shadow-md"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white font-bold text-xs shadow-md"
           >
             Show All Dishes
           </button>

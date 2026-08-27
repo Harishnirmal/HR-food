@@ -2,30 +2,34 @@
 
 @layer base {
   :root {
-    --font-serif: 'DM Serif Display', Georgia, serif;
-    --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     
-    /* Palette Tokens */
-    --color-primary: #183A32;
-    --color-secondary: #B85C38;
-    --color-bg-main: #F8F3E8;
-    --color-bg-secondary: #E9DDC7;
-    --color-accent: #C49A52;
-    --color-text-main: #24221F;
-    --color-card: #FFFDF8;
-    --color-success: #3F7D58;
+    /* Red & Orange Brand Palette Tokens */
+    --color-primary: #941B1B;      /* Deep Royal Crimson / Spice Ruby */
+    --color-primary-dark: #6E1010; /* Dark Tandoor Red */
+    --color-secondary: #EA580C;    /* Fiery Sunset Orange */
+    --color-secondary-dark: #C2410C;
+    --color-bg-main: #FCF8F5;      /* Warm Saffron Cream */
+    --color-bg-secondary: #FDEEE4; /* Pale Peach Amber */
+    --color-accent: #F59E0B;       /* Pure Ghee Gold / Turmeric */
+    --color-text-main: #231815;    /* Deep Roast Espresso */
+    --color-text-muted: #6E564F;   /* Warm Cinnamon Brown */
+    --color-card: #FFFFFF;         /* Pure Crisp White */
+    --color-card-border: #F3DFD2;  /* Soft Warm Peach Border */
+    --color-success: #2E7D32;      /* Fresh Emerald Green */
   }
 
   body {
     font-family: var(--font-sans);
-    color: #24221F;
-    background-color: #F8F3E8;
+    color: #231815;
+    background-color: #FCF8F5;
     -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 }
 
@@ -43,19 +47,19 @@
   height: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #E9DDC7;
+  background: #FDEEE4;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #C49A52;
+  background: #EA580C;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #B85C38;
+  background: #941B1B;
 }
 
 @keyframes pulse-subtle {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.03); }
+  50% { opacity: 0.88; transform: scale(1.03); }
 }
 
 .animate-pulse-subtle {

@@ -16,12 +16,12 @@ export const CategoryNav: React.FC = () => {
           onClick={() => setSelectedCategorySlug(null)}
           className={`shrink-0 flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border transition-all select-none ${
             selectedCategorySlug === null
-              ? 'bg-[#183928] text-white border-[#183928] shadow-md scale-105'
-              : 'bg-white text-stone-700 border-[#E8DFD3] hover:border-[#C85A32] hover:bg-[#FAF6F0]'
+              ? 'bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white border-transparent shadow-md scale-105'
+              : 'bg-white text-[#231815] border-[#F2DDD0] hover:border-[#EA580C] hover:bg-[#FDEEE4]'
           }`}
         >
           <div className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs ${
-            selectedCategorySlug === null ? 'bg-[#E6C687] text-[#183928]' : 'bg-[#F2EBE1] text-[#8F4A2D]'
+            selectedCategorySlug === null ? 'bg-[#FBBF24] text-[#941B1B]' : 'bg-[#FDEEE4] text-[#EA580C]'
           }`}>
             <Utensils className="w-4 h-4" />
           </div>
@@ -36,8 +36,8 @@ export const CategoryNav: React.FC = () => {
               onClick={() => setSelectedCategorySlug(cat.slug)}
               className={`shrink-0 flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border transition-all select-none group ${
                 isSelected
-                  ? 'bg-[#183928] text-white border-[#183928] shadow-md scale-105'
-                  : 'bg-white text-stone-700 border-[#E8DFD3] hover:border-[#C85A32] hover:bg-[#FAF6F0]'
+                  ? 'bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white border-transparent shadow-md scale-105'
+                  : 'bg-white text-[#231815] border-[#F2DDD0] hover:border-[#EA580C] hover:bg-[#FDEEE4]'
               }`}
             >
               <img

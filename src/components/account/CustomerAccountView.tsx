@@ -66,14 +66,14 @@ export const CustomerAccountView: React.FC = () => {
   if (!user) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center space-y-6">
-        <div className="w-20 h-20 rounded-3xl bg-[#F3ECE0] flex items-center justify-center mx-auto text-[#8F4A2D] shadow-inner">
+        <div className="w-20 h-20 rounded-3xl bg-[#FDEEE4] flex items-center justify-center mx-auto text-[#EA580C] shadow-inner">
           <User className="w-10 h-10" />
         </div>
         <div className="space-y-2">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#231815]">
             Sign in to view your Account
           </h2>
-          <p className="text-sm text-stone-500 max-w-md mx-auto">
+          <p className="text-sm text-[#826A62] max-w-md mx-auto">
             Access your order tracking, delivery addresses, and reorder favourite South Indian delicacies in seconds.
           </p>
         </div>
@@ -83,13 +83,13 @@ export const CustomerAccountView: React.FC = () => {
               setAuthModalMode('login');
               setIsAuthModalOpen(true);
             }}
-            className="px-6 py-3 rounded-xl bg-[#183928] text-white font-bold text-sm shadow-md hover:bg-[#10271B] transition-all"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white font-bold text-sm shadow-md hover:opacity-90 transition-all cursor-pointer"
           >
             Sign In to Account
           </button>
           <button
             onClick={() => switchRoleDemo('customer')}
-            className="px-6 py-3 rounded-xl bg-[#F2EBE1] border border-[#DFCDB9] text-[#183928] font-bold text-sm hover:bg-[#EAE1D5] transition-all"
+            className="px-6 py-3 rounded-xl bg-white border border-[#F2DDD0] text-[#941B1B] font-bold text-sm hover:bg-[#FCF8F5] transition-all cursor-pointer"
           >
             Load Customer Demo Account
           </button>
@@ -166,9 +166,9 @@ export const CustomerAccountView: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       
       {/* Account Hero Banner */}
-      <div className="bg-[#183928] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden mb-8">
+      <div className="bg-gradient-to-r from-[#941B1B] via-[#7C1313] to-[#EA580C] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden mb-8">
         <div className="flex items-center gap-4 relative z-10">
-          <div className="w-16 h-16 rounded-2xl bg-[#E6C687] text-[#183928] font-serif font-bold text-3xl flex items-center justify-center shadow-lg">
+          <div className="w-16 h-16 rounded-2xl bg-white text-[#EA580C] font-serif font-bold text-3xl flex items-center justify-center shadow-lg">
             {user.name.charAt(0).toUpperCase()}
           </div>
           <div>
@@ -176,11 +176,11 @@ export const CustomerAccountView: React.FC = () => {
               <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight">
                 {user.name}
               </h1>
-              <span className="text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-[#E6C687]/20 text-[#E6C687] border border-[#E6C687]/40">
+              <span className="text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-white/20 text-white border border-white/40">
                 {user.role}
               </span>
             </div>
-            <p className="text-xs text-[#C5D6CC] mt-1 flex items-center gap-3">
+            <p className="text-xs text-stone-100 mt-1 flex items-center gap-3">
               <span>{user.email}</span>
               <span>•</span>
               <span>{user.phone}</span>
@@ -195,14 +195,14 @@ export const CustomerAccountView: React.FC = () => {
               setProfilePhone(user.phone);
               setIsEditingProfile(true);
             }}
-            className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <Edit3 className="w-3.5 h-3.5" />
             Edit Profile
           </button>
           <button
             onClick={logout}
-            className="px-4 py-2 rounded-xl bg-rose-600/20 text-rose-200 hover:bg-rose-600/40 font-bold text-xs flex items-center gap-1.5 transition-colors border border-rose-500/30"
+            className="px-4 py-2 rounded-xl bg-rose-600/30 text-rose-100 hover:bg-rose-600/50 font-bold text-xs flex items-center gap-1.5 transition-colors border border-rose-400/40 cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
             Log Out
@@ -211,13 +211,13 @@ export const CustomerAccountView: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#E8DFC8] pb-4 mb-6">
+      <div className="flex items-center gap-2 border-b border-[#F2DDD0] pb-4 mb-6">
         <button
           onClick={() => setActiveTab('orders')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
             activeTab === 'orders'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <PackageCheck className="w-4 h-4" />
@@ -226,10 +226,10 @@ export const CustomerAccountView: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('addresses')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
             activeTab === 'addresses'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <MapPin className="w-4 h-4" />
@@ -238,10 +238,10 @@ export const CustomerAccountView: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('profile')}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
             activeTab === 'profile'
-              ? 'bg-[#183928] text-white shadow-md'
-              : 'bg-white text-stone-600 border border-stone-200 hover:border-stone-400'
+              ? 'bg-[#941B1B] text-white shadow-md'
+              : 'bg-white text-[#6E564F] border border-[#F2DDD0] hover:border-[#EA580C]/40'
           }`}
         >
           <User className="w-4 h-4" />
@@ -253,14 +253,14 @@ export const CustomerAccountView: React.FC = () => {
       {activeTab === 'orders' && (
         <div className="space-y-4">
           {userOrders.length === 0 ? (
-            <div className="bg-white rounded-3xl p-12 text-center border border-[#E8DFD3] space-y-3">
-              <div className="w-16 h-16 rounded-full bg-[#F3ECE0] flex items-center justify-center mx-auto text-3xl">
+            <div className="bg-white rounded-3xl p-12 text-center border border-[#F2DDD0] space-y-3">
+              <div className="w-16 h-16 rounded-full bg-[#FDEEE4] flex items-center justify-center mx-auto text-3xl">
                 📦
               </div>
-              <h3 className="font-serif text-lg font-bold text-stone-800">
+              <h3 className="font-serif text-lg font-bold text-[#231815]">
                 You haven't placed an order yet
               </h3>
-              <p className="text-xs text-stone-500 max-w-sm mx-auto">
+              <p className="text-xs text-[#826A62] max-w-sm mx-auto">
                 Explore our South Indian tiffin, dosas, thalis, and Thalassery biriyani.
               </p>
             </div>
@@ -270,18 +270,18 @@ export const CustomerAccountView: React.FC = () => {
               return (
                 <div
                   key={order.id}
-                  className="bg-white rounded-2xl border border-[#E8DFD3] p-5 shadow-xs hover:border-[#DECBB6] transition-all space-y-4"
+                  className="bg-white rounded-2xl border border-[#F2DDD0] p-5 shadow-xs hover:border-[#EA580C]/40 transition-all space-y-4"
                 >
                   {/* Order Top Bar */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-stone-100">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-stone-900 text-sm">
+                        <span className="font-bold text-[#231815] text-sm">
                           Order #{order.order_number}
                         </span>
                         <OrderStatusBadge status={order.status} />
                       </div>
-                      <p className="text-xs text-stone-400 mt-0.5">
+                      <p className="text-xs text-[#826A62] mt-0.5">
                         Placed on {new Date(order.created_at).toLocaleDateString('en-IN', {
                           day: 'numeric',
                           month: 'short',
@@ -294,13 +294,13 @@ export const CustomerAccountView: React.FC = () => {
 
                     <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
                       <div className="text-right">
-                        <p className="text-xs text-stone-400">Total Amount</p>
-                        <p className="font-serif font-bold text-lg text-[#183928]">₹{order.total}</p>
+                        <p className="text-xs text-[#826A62]">Total Amount</p>
+                        <p className="font-serif font-bold text-lg text-[#941B1B]">₹{order.total}</p>
                       </div>
 
                       <button
                         onClick={() => reorder(order)}
-                        className="px-3.5 py-2 rounded-xl bg-[#F2EBE1] text-[#183928] hover:bg-[#C85A32] hover:text-white font-bold text-xs flex items-center gap-1.5 transition-colors"
+                        className="px-3.5 py-2 rounded-xl bg-[#FDEEE4] text-[#941B1B] hover:bg-[#EA580C] hover:text-white font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                         Reorder
@@ -314,7 +314,7 @@ export const CustomerAccountView: React.FC = () => {
                       {order.items.map((item) => (
                         <span
                           key={item.id}
-                          className="px-2.5 py-1 rounded-lg bg-[#FAF6F0] border border-[#EBE3D5] text-xs font-semibold text-stone-800"
+                          className="px-2.5 py-1 rounded-lg bg-[#FCF8F5] border border-[#F2DDD0] text-xs font-semibold text-[#231815]"
                         >
                           {item.product_name} × {item.quantity}
                         </span>
@@ -326,7 +326,7 @@ export const CustomerAccountView: React.FC = () => {
                   <div>
                     <button
                       onClick={() => setExpandedOrderId(isExpanded ? null : order.id)}
-                      className="text-xs font-bold text-[#8F4A2D] hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-[#EA580C] hover:underline flex items-center gap-1 cursor-pointer"
                     >
                       {isExpanded ? (
                         <>
@@ -346,8 +346,8 @@ export const CustomerAccountView: React.FC = () => {
                   {isExpanded && (
                     <div className="pt-4 border-t border-stone-100 space-y-4 animate-in fade-in duration-200">
                       {/* Timeline */}
-                      <div className="bg-[#FAF7F2] p-4 rounded-2xl border border-[#ECE3D5]">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-stone-600 mb-2">
+                      <div className="bg-[#FCF8F5] p-4 rounded-2xl border border-[#F2DDD0]">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#826A62] mb-2">
                           Order Progress
                         </h4>
                         <OrderTimeline status={order.status} statusHistory={order.status_history} />
@@ -370,8 +370,8 @@ export const CustomerAccountView: React.FC = () => {
                       </div>
 
                       {/* Delivery Address */}
-                      <div className="text-xs text-stone-600">
-                        <span className="font-bold text-stone-800">Delivered to: </span>
+                      <div className="text-xs text-[#6E564F]">
+                        <span className="font-bold text-[#231815]">Delivered to: </span>
                         {order.delivery_address}, {order.landmark && `${order.landmark}, `}{order.city} - {order.pincode}
                       </div>
                     </div>
@@ -387,12 +387,12 @@ export const CustomerAccountView: React.FC = () => {
       {activeTab === 'addresses' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-serif font-bold text-lg text-stone-900">
+            <h3 className="font-serif font-bold text-lg text-[#231815]">
               Saved Delivery Locations
             </h3>
             <button
               onClick={() => handleOpenAddressModal()}
-              className="px-4 py-2 rounded-xl bg-[#183928] text-white hover:bg-[#10271B] font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white hover:opacity-90 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               Add New Address
@@ -403,11 +403,11 @@ export const CustomerAccountView: React.FC = () => {
             {userAddresses.map((addr) => (
               <div
                 key={addr.id}
-                className="bg-white rounded-2xl border border-[#E8DFD3] p-5 shadow-xs flex flex-col justify-between space-y-3"
+                className="bg-white rounded-2xl border border-[#F2DDD0] p-5 shadow-xs flex flex-col justify-between space-y-3"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#F4ECE1] text-[#8F4A2D]">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#FDEEE4] text-[#EA580C]">
                       {addr.label}
                     </span>
                     {addr.is_default && (
@@ -416,20 +416,20 @@ export const CustomerAccountView: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm font-semibold text-stone-800 leading-snug">
+                  <p className="text-sm font-semibold text-[#231815] leading-snug">
                     {addr.address_line}
                   </p>
                   {addr.landmark && (
-                    <p className="text-xs text-stone-500 mt-0.5">Landmark: {addr.landmark}</p>
+                    <p className="text-xs text-[#826A62] mt-0.5">Landmark: {addr.landmark}</p>
                   )}
-                  <p className="text-xs text-stone-400 mt-0.5">{addr.city} - {addr.pincode}</p>
+                  <p className="text-xs text-[#826A62] mt-0.5">{addr.city} - {addr.pincode}</p>
                 </div>
 
                 <div className="flex items-center justify-between pt-3 border-t border-stone-100 text-xs">
                   {!addr.is_default ? (
                     <button
                       onClick={() => setDefaultAddress(addr.id)}
-                      className="font-bold text-[#183928] hover:underline"
+                      className="font-bold text-[#EA580C] hover:underline cursor-pointer"
                     >
                       Set as Default
                     </button>
@@ -440,14 +440,14 @@ export const CustomerAccountView: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleOpenAddressModal(addr)}
-                      className="p-1 text-stone-500 hover:text-stone-900"
+                      className="p-1 text-stone-500 hover:text-[#231815] cursor-pointer"
                       title="Edit"
                     >
                       <Edit3 className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => deleteAddress(addr.id)}
-                      className="p-1 text-stone-400 hover:text-rose-600"
+                      className="p-1 text-stone-400 hover:text-rose-600 cursor-pointer"
                       title="Delete"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -462,27 +462,27 @@ export const CustomerAccountView: React.FC = () => {
 
       {/* TAB 3: PROFILE INFO */}
       {activeTab === 'profile' && (
-        <div className="bg-white rounded-3xl border border-[#E8DFD3] p-6 sm:p-8 max-w-xl space-y-6">
-          <h3 className="font-serif font-bold text-xl text-stone-900">
+        <div className="bg-white rounded-3xl border border-[#F2DDD0] p-6 sm:p-8 max-w-xl space-y-6">
+          <h3 className="font-serif font-bold text-xl text-[#231815]">
             Personal Information
           </h3>
 
           <div className="space-y-4 text-sm">
             <div className="flex justify-between py-2 border-b border-stone-100">
-              <span className="text-stone-500">Full Name</span>
-              <span className="font-bold text-stone-900">{user.name}</span>
+              <span className="text-[#826A62]">Full Name</span>
+              <span className="font-bold text-[#231815]">{user.name}</span>
             </div>
             <div className="flex justify-between py-2 border-b border-stone-100">
-              <span className="text-stone-500">Email Address</span>
-              <span className="font-bold text-stone-900">{user.email}</span>
+              <span className="text-[#826A62]">Email Address</span>
+              <span className="font-bold text-[#231815]">{user.email}</span>
             </div>
             <div className="flex justify-between py-2 border-b border-stone-100">
-              <span className="text-stone-500">Phone Number</span>
-              <span className="font-bold text-stone-900">{user.phone}</span>
+              <span className="text-[#826A62]">Phone Number</span>
+              <span className="font-bold text-[#231815]">{user.phone}</span>
             </div>
             <div className="flex justify-between py-2 border-b border-stone-100">
-              <span className="text-stone-500">Account Role</span>
-              <span className="font-bold text-stone-900 uppercase text-xs px-2 py-0.5 rounded bg-stone-100">
+              <span className="text-[#826A62]">Account Role</span>
+              <span className="font-bold text-[#231815] uppercase text-xs px-2 py-0.5 rounded bg-[#FDEEE4] text-[#EA580C]">
                 {user.role}
               </span>
             </div>
@@ -495,7 +495,7 @@ export const CustomerAccountView: React.FC = () => {
                 setProfilePhone(user.phone);
                 setIsEditingProfile(true);
               }}
-              className="px-5 py-2.5 rounded-xl bg-[#183928] text-white font-bold text-xs hover:bg-[#10271B] transition-all"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white font-bold text-xs hover:opacity-90 transition-all cursor-pointer"
             >
               Update Profile Information
             </button>
@@ -506,13 +506,13 @@ export const CustomerAccountView: React.FC = () => {
       {/* Edit Profile Modal */}
       {isEditingProfile && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="w-full max-w-md bg-[#FCFAF6] rounded-3xl p-6 shadow-2xl border border-[#E8DFD3] space-y-4">
-            <h3 className="font-serif font-bold text-lg text-stone-900">
+          <div className="w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-[#F2DDD0] space-y-4">
+            <h3 className="font-serif font-bold text-lg text-[#231815]">
               Edit Profile
             </h3>
             <form onSubmit={handleSaveProfile} className="space-y-3">
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                   Full Name
                 </label>
                 <input
@@ -520,11 +520,11 @@ export const CustomerAccountView: React.FC = () => {
                   required
                   value={profileName}
                   onChange={(e) => setProfileName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                 />
               </div>
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                   Phone Number
                 </label>
                 <input
@@ -532,7 +532,7 @@ export const CustomerAccountView: React.FC = () => {
                   required
                   value={profilePhone}
                   onChange={(e) => setProfilePhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                 />
               </div>
 
@@ -540,13 +540,13 @@ export const CustomerAccountView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsEditingProfile(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-stone-300 text-stone-700 font-bold text-xs hover:bg-stone-100"
+                  className="flex-1 py-2.5 rounded-xl border border-[#F2DDD0] text-[#6E564F] font-bold text-xs hover:bg-[#FCF8F5] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 rounded-xl bg-[#183928] text-white font-bold text-xs hover:bg-[#10271B]"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white font-bold text-xs hover:opacity-90 cursor-pointer"
                 >
                   Save Changes
                 </button>
@@ -559,8 +559,8 @@ export const CustomerAccountView: React.FC = () => {
       {/* Address Add / Edit Modal */}
       {isAddressFormOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="w-full max-w-lg bg-[#FCFAF6] rounded-3xl p-6 shadow-2xl border border-[#E8DFD3] space-y-4">
-            <h3 className="font-serif font-bold text-lg text-stone-900">
+          <div className="w-full max-w-lg bg-white rounded-3xl p-6 shadow-2xl border border-[#F2DDD0] space-y-4">
+            <h3 className="font-serif font-bold text-lg text-[#231815]">
               {editingAddressId ? 'Edit Address' : 'Add New Delivery Address'}
             </h3>
 
@@ -571,10 +571,10 @@ export const CustomerAccountView: React.FC = () => {
                     key={lbl}
                     type="button"
                     onClick={() => setAddrLabel(lbl)}
-                    className={`flex-1 py-2 rounded-xl text-xs font-bold border transition-all ${
+                    className={`flex-1 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                       addrLabel === lbl
-                        ? 'bg-[#183928] text-white border-[#183928]'
-                        : 'bg-white text-stone-700 border-stone-200'
+                        ? 'bg-[#941B1B] text-white border-[#941B1B]'
+                        : 'bg-white text-[#6E564F] border-[#F2DDD0]'
                     }`}
                   >
                     {lbl}
@@ -583,7 +583,7 @@ export const CustomerAccountView: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                   Street Address
                 </label>
                 <input
@@ -592,24 +592,24 @@ export const CustomerAccountView: React.FC = () => {
                   placeholder="e.g. Flat 4B, Kaveri Apartments"
                   value={addrLine}
                   onChange={(e) => setAddrLine(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                     Landmark
                   </label>
                   <input
                     type="text"
                     value={addrLandmark}
                     onChange={(e) => setAddrLandmark(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                     City
                   </label>
                   <input
@@ -617,11 +617,11 @@ export const CustomerAccountView: React.FC = () => {
                     required
                     value={addrCity}
                     onChange={(e) => setAddrCity(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block mb-1">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block mb-1">
                     Pincode
                   </label>
                   <input
@@ -629,7 +629,7 @@ export const CustomerAccountView: React.FC = () => {
                     required
                     value={addrPincode}
                     onChange={(e) => setAddrPincode(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C]"
                   />
                 </div>
               </div>
@@ -640,9 +640,9 @@ export const CustomerAccountView: React.FC = () => {
                   id="addrDefaultCheck"
                   checked={addrIsDefault}
                   onChange={(e) => setAddrIsDefault(e.target.checked)}
-                  className="rounded text-[#183928] focus:ring-[#183928]"
+                  className="rounded text-[#EA580C] focus:ring-[#EA580C]"
                 />
-                <label htmlFor="addrDefaultCheck" className="text-xs font-semibold text-stone-700">
+                <label htmlFor="addrDefaultCheck" className="text-xs font-semibold text-[#6E564F]">
                   Set as my default delivery address
                 </label>
               </div>
@@ -651,13 +651,13 @@ export const CustomerAccountView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsAddressFormOpen(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-stone-300 text-stone-700 font-bold text-xs hover:bg-stone-100"
+                  className="flex-1 py-2.5 rounded-xl border border-[#F2DDD0] text-[#6E564F] font-bold text-xs hover:bg-[#FCF8F5] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 rounded-xl bg-[#183928] text-white font-bold text-xs hover:bg-[#10271B]"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#941B1B] to-[#EA580C] text-white font-bold text-xs hover:opacity-90 cursor-pointer"
                 >
                   Save Address
                 </button>

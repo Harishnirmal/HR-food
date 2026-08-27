@@ -66,7 +66,7 @@ export const FoodDetailsModal: React.FC = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs overflow-y-auto">
       <div 
         id="food-details-modal"
-        className="w-full max-w-xl bg-[#FCFAF6] rounded-3xl shadow-2xl border border-[#E8DFD3] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
+        className="w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-[#F2DDD0] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Top Image Banner with close button */}
         <div className="relative w-full h-64 sm:h-72 bg-stone-900">
@@ -90,7 +90,7 @@ export const FoodDetailsModal: React.FC = () => {
           <div className="absolute top-4 left-4 flex gap-2">
             <VegIndicator veg={product.veg} size="lg" />
             {product.bestseller && (
-              <span className="px-3 py-1 rounded-full text-xs uppercase tracking-wider font-extrabold bg-[#C85A32] text-white shadow-md">
+              <span className="px-3 py-1 rounded-full text-xs uppercase tracking-wider font-extrabold bg-gradient-to-r from-[#EA580C] to-[#C2410C] text-white shadow-md">
                 Bestseller
               </span>
             )}
@@ -124,23 +124,23 @@ export const FoodDetailsModal: React.FC = () => {
           
           {/* Description */}
           <div>
-            <p className="text-sm text-stone-700 leading-relaxed">
+            <p className="text-sm text-[#6E564F] leading-relaxed">
               {product.description}
             </p>
           </div>
 
           {/* Ingredients list */}
           {product.ingredients && product.ingredients.length > 0 && (
-            <div className="bg-[#F4ECE1] p-3.5 rounded-2xl border border-[#E8DFC8]">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#8F4A2D] mb-2 flex items-center gap-1.5">
-                <ChefHat className="w-3.5 h-3.5" />
+            <div className="bg-[#FCF8F5] p-3.5 rounded-2xl border border-[#F2DDD0]">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#941B1B] mb-2 flex items-center gap-1.5">
+                <ChefHat className="w-3.5 h-3.5 text-[#EA580C]" />
                 Key Ingredients
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {product.ingredients.map((item, idx) => (
                   <span
                     key={idx}
-                    className="text-xs font-medium px-2.5 py-1 rounded-lg bg-white/80 text-stone-800 border border-stone-200"
+                    className="text-xs font-medium px-2.5 py-1 rounded-lg bg-white text-[#231815] border border-[#F2DDD0]"
                   >
                     {item}
                   </span>
@@ -151,7 +151,7 @@ export const FoodDetailsModal: React.FC = () => {
 
           {/* Spice Level Radio Controls */}
           <div className="space-y-2.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block">
               Choose Spice Level
             </label>
             <div className="grid grid-cols-3 gap-2.5">
@@ -164,8 +164,8 @@ export const FoodDetailsModal: React.FC = () => {
                     onClick={() => setSpiceLevel(level)}
                     className={`py-2.5 px-3 rounded-xl border text-center transition-all flex flex-col items-center gap-1 select-none ${
                       isSelected
-                        ? 'bg-[#183928] text-white border-[#183928] shadow-sm ring-2 ring-[#183928]/20'
-                        : 'bg-white text-stone-700 border-stone-200 hover:border-stone-400'
+                        ? 'bg-gradient-to-r from-[#941B1B] to-[#B91C1C] text-white border-[#941B1B] shadow-sm ring-2 ring-[#EA580C]/30'
+                        : 'bg-white text-[#231815] border-[#F2DDD0] hover:border-[#EA580C]'
                     }`}
                   >
                     <div className="flex items-center gap-1 text-xs font-bold capitalize">
@@ -184,10 +184,10 @@ export const FoodDetailsModal: React.FC = () => {
           {product.addons && product.addons.length > 0 && (
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold uppercase tracking-wider text-stone-600">
+                <label className="text-xs font-bold uppercase tracking-wider text-[#826A62]">
                   Recommended Add-ons
                 </label>
-                <span className="text-[11px] text-stone-400">Optional</span>
+                <span className="text-[11px] text-[#826A62]">Optional</span>
               </div>
               <div className="space-y-2">
                 {product.addons.map((addon) => {
@@ -198,21 +198,21 @@ export const FoodDetailsModal: React.FC = () => {
                       onClick={() => toggleAddon(addon)}
                       className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer select-none transition-all ${
                         isChecked
-                          ? 'bg-[#F2EBE1] border-[#C85A32] shadow-xs'
-                          : 'bg-white border-stone-200 hover:border-stone-300'
+                          ? 'bg-[#FDEEE4] border-[#EA580C] shadow-xs'
+                          : 'bg-white border-[#F2DDD0] hover:border-[#EA580C]/40'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div className={`w-5 h-5 rounded-md flex items-center justify-center border ${
-                          isChecked ? 'bg-[#C85A32] border-[#C85A32] text-white' : 'border-stone-300 bg-white'
+                          isChecked ? 'bg-[#EA580C] border-[#EA580C] text-white' : 'border-stone-300 bg-white'
                         }`}>
                           {isChecked && <Check className="w-3.5 h-3.5" />}
                         </div>
-                        <span className="text-sm font-semibold text-stone-900">
+                        <span className="text-sm font-semibold text-[#231815]">
                           {addon.name}
                         </span>
                       </div>
-                      <span className="text-xs font-bold text-[#183928]">
+                      <span className="text-xs font-bold text-[#941B1B]">
                         +₹{addon.price}
                       </span>
                     </div>
@@ -224,7 +224,7 @@ export const FoodDetailsModal: React.FC = () => {
 
           {/* Special Cooking Instructions */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] block">
               Special Instructions
             </label>
             <input
@@ -232,29 +232,29 @@ export const FoodDetailsModal: React.FC = () => {
               placeholder="e.g. Less spicy, crispy roast, extra sambar bag..."
               value={specialInstructions}
               onChange={(e) => setSpecialInstructions(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-white text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] placeholder:text-[#826A62]/60 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
             />
           </div>
 
         </div>
 
         {/* Modal Footer with Quantity and Add Button */}
-        <div className="p-4 sm:p-5 bg-[#F5EFE6] border-t border-[#E8DFD3] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="p-4 sm:p-5 bg-[#FCF8F5] border-t border-[#F2DDD0] flex flex-col sm:flex-row items-center justify-between gap-3">
           {/* Quantity Stepper */}
-          <div className="flex items-center bg-white border border-stone-300 rounded-xl p-1 shadow-xs">
+          <div className="flex items-center bg-white border border-[#F2DDD0] rounded-xl p-1 shadow-xs">
             <button
               onClick={() => setQuantity((q) => Math.max(1, q - 1))}
               disabled={quantity <= 1}
-              className="w-8 h-8 rounded-lg hover:bg-stone-100 flex items-center justify-center text-stone-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="w-8 h-8 rounded-lg hover:bg-stone-100 flex items-center justify-center text-[#231815] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               <Minus className="w-4 h-4" />
             </button>
-            <span className="w-10 text-center font-bold text-sm text-stone-900">
+            <span className="w-10 text-center font-bold text-sm text-[#231815]">
               {quantity}
             </span>
             <button
               onClick={() => setQuantity((q) => q + 1)}
-              className="w-8 h-8 rounded-lg hover:bg-stone-100 flex items-center justify-center text-stone-700 transition-colors"
+              className="w-8 h-8 rounded-lg hover:bg-stone-100 flex items-center justify-center text-[#231815] transition-colors"
             >
               <Plus className="w-4 h-4" />
             </button>
@@ -264,16 +264,16 @@ export const FoodDetailsModal: React.FC = () => {
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={handleAddToCart}
-              className="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-[#183928] text-white hover:bg-[#10271B] font-bold text-sm flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all"
+              className="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-[#941B1B] text-white hover:bg-[#7C1313] font-bold text-sm flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all"
             >
               <span>Add to Cart</span>
               <span>•</span>
-              <span className="text-[#E6C687]">₹{totalPrice}</span>
+              <span className="text-[#FDEEE4]">₹{totalPrice}</span>
             </button>
 
             <button
               onClick={handleQuickOrder}
-              className="px-4 py-3 rounded-xl bg-[#C85A32] text-white hover:bg-[#A84521] font-bold text-sm active:scale-95 transition-all shadow-md"
+              className="px-4 py-3 rounded-xl bg-[#EA580C] text-white hover:bg-[#C2410C] font-bold text-sm active:scale-95 transition-all shadow-md"
               title="Add & Open Cart"
             >
               Order Now

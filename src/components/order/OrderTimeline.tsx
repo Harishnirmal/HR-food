@@ -37,11 +37,11 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
       {/* Desktop Horizontal Timeline */}
       <div className="hidden sm:flex items-center justify-between relative">
         {/* Background Connecting Line */}
-        <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-1 bg-[#E8DFD3] z-0" />
+        <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-1 bg-[#F2DDD0] z-0" />
         
         {/* Active Connecting Progress Line */}
         <div 
-          className="absolute top-1/2 left-4 -translate-y-1/2 h-1 bg-[#183928] z-0 transition-all duration-500"
+          className="absolute top-1/2 left-4 -translate-y-1/2 h-1 bg-gradient-to-r from-[#941B1B] to-[#EA580C] z-0 transition-all duration-500"
           style={{
             width: `${(activeStepIndex / (STEPS.length - 1)) * 100}%`
           }}
@@ -58,10 +58,10 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
               <div
                 className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all shadow-xs ${
                   isDone
-                    ? 'bg-[#183928] text-white'
+                    ? 'bg-[#941B1B] text-white'
                     : isCurrent
-                    ? 'bg-[#C85A32] text-white ring-4 ring-[#C85A32]/20 scale-110 animate-pulse-subtle'
-                    : 'bg-white border-2 border-[#D5C7B5] text-[#9A8C7E]'
+                    ? 'bg-[#EA580C] text-white ring-4 ring-[#EA580C]/20 scale-110'
+                    : 'bg-white border-2 border-[#F2DDD0] text-[#826A62]'
                 }`}
               >
                 {isDone ? <Check className="w-4 h-4" /> : <Icon className="w-4 h-4" />}
@@ -69,9 +69,9 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
               <span
                 className={`mt-2 text-[11px] font-bold text-center tracking-tight ${
                   isCurrent
-                    ? 'text-[#C85A32]'
+                    ? 'text-[#EA580C]'
                     : isDone
-                    ? 'text-[#183928]'
+                    ? 'text-[#941B1B]'
                     : 'text-stone-400'
                 }`}
               >
@@ -83,7 +83,7 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
       </div>
 
       {/* Mobile Vertical Timeline */}
-      <div className="sm:hidden space-y-3 relative pl-6 border-l-2 border-[#D5C7B5] ml-3">
+      <div className="sm:hidden space-y-3 relative pl-6 border-l-2 border-[#F2DDD0] ml-3">
         {STEPS.map((step, idx) => {
           const isDone = idx < activeStepIndex;
           const isCurrent = idx === activeStepIndex;
@@ -95,10 +95,10 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
               <div
                 className={`absolute -left-[31px] top-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] ${
                   isDone
-                    ? 'bg-[#183928] text-white'
+                    ? 'bg-[#941B1B] text-white'
                     : isCurrent
-                    ? 'bg-[#C85A32] text-white ring-2 ring-[#C85A32]/30 animate-pulse'
-                    : 'bg-white border border-[#D5C7B5] text-stone-400'
+                    ? 'bg-[#EA580C] text-white ring-2 ring-[#EA580C]/30 animate-pulse'
+                    : 'bg-white border border-[#F2DDD0] text-stone-400'
                 }`}
               >
                 {isDone ? <Check className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
@@ -108,16 +108,16 @@ export const OrderTimeline: React.FC<OrderTimelineProps> = ({ status, statusHist
                 <span
                   className={`text-xs font-bold ${
                     isCurrent
-                      ? 'text-[#C85A32]'
+                      ? 'text-[#EA580C]'
                       : isDone
-                      ? 'text-[#183928]'
+                      ? 'text-[#941B1B]'
                       : 'text-stone-400'
                   }`}
                 >
                   {step.label}
                 </span>
                 {isCurrent && (
-                  <span className="text-[10px] bg-amber-100 text-amber-900 font-extrabold px-1.5 py-0.2 rounded">
+                  <span className="text-[10px] bg-[#FDEEE4] text-[#EA580C] font-extrabold px-1.5 py-0.5 rounded">
                     Active
                   </span>
                 )}

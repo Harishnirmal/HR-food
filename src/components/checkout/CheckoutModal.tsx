@@ -130,27 +130,27 @@ export const CheckoutModal: React.FC = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs overflow-y-auto">
       <div 
         id="checkout-modal-panel"
-        className="w-full max-w-2xl bg-[#FCFAF6] rounded-3xl shadow-2xl border border-[#E8DFD3] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
+        className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#F2DDD0] overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Header */}
-        <div className="p-5 sm:p-6 border-b border-[#E8DFC8] bg-white flex items-center justify-between">
+        <div className="p-5 sm:p-6 border-b border-[#F2DDD0] bg-white flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#25D366]/20 text-[#128C7E] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center">
                 <MessageCircle className="w-4 h-4 fill-current" />
               </div>
-              <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 leading-tight">
+              <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#231815] leading-tight">
                 Complete Your Order
               </h2>
             </div>
-            <p className="text-xs text-stone-500 mt-0.5">
+            <p className="text-xs text-[#826A62] mt-0.5">
               Instant direct WhatsApp booking • Fast delivery in {settings.delivery_radius_km} km
             </p>
           </div>
 
           <button
             onClick={() => setIsCheckoutModalOpen(false)}
-            className="p-2 rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+            className="p-2 rounded-xl text-stone-400 hover:text-[#231815] hover:bg-stone-100 transition-colors"
             aria-label="Close checkout"
           >
             <X className="w-5 h-5" />
@@ -164,8 +164,8 @@ export const CheckoutModal: React.FC = () => {
             {/* Quick saved addresses selector if logged in */}
             {userSavedAddresses.length > 0 && (
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                  <Bookmark className="w-3.5 h-3.5 text-[#C85A32]" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#826A62] flex items-center gap-1.5">
+                  <Bookmark className="w-3.5 h-3.5 text-[#EA580C]" />
                   Saved Delivery Addresses
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -175,18 +175,18 @@ export const CheckoutModal: React.FC = () => {
                       onClick={() => handleSelectSavedAddress(addr.id)}
                       className={`p-3 rounded-xl border cursor-pointer text-xs transition-all ${
                         addressLine === addr.address_line
-                          ? 'bg-[#F2EBE1] border-[#C85A32] ring-1 ring-[#C85A32]'
-                          : 'bg-white border-stone-200 hover:border-stone-400'
+                          ? 'bg-[#FDEEE4] border-[#EA580C] ring-1 ring-[#EA580C]'
+                          : 'bg-white border-[#F2DDD0] hover:border-[#EA580C]/40'
                       }`}
                     >
-                      <div className="flex items-center justify-between font-bold text-stone-900 mb-0.5">
+                      <div className="flex items-center justify-between font-bold text-[#231815] mb-0.5">
                         <span>{addr.label}</span>
                         {addr.is_default && (
                           <span className="text-[10px] text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">Default</span>
                         )}
                       </div>
-                      <p className="text-stone-600 line-clamp-1">{addr.address_line}</p>
-                      <p className="text-stone-400 text-[10px]">{addr.city} - {addr.pincode}</p>
+                      <p className="text-[#6E564F] line-clamp-1">{addr.address_line}</p>
+                      <p className="text-[#826A62] text-[10px]">{addr.city} - {addr.pincode}</p>
                     </div>
                   ))}
                 </div>
@@ -195,13 +195,13 @@ export const CheckoutModal: React.FC = () => {
 
             {/* Section 1: Customer Details */}
             <div className="space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5 text-[#C85A32]" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#826A62] flex items-center gap-1.5">
+                <User className="w-3.5 h-3.5 text-[#EA580C]" />
                 Customer Contact Details
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs font-semibold text-stone-700 block mb-1">
+                  <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                     Full Name <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -210,12 +210,12 @@ export const CheckoutModal: React.FC = () => {
                     placeholder="e.g. Suresh Kumar"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold text-stone-700 block mb-1">
+                  <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                     Mobile Number (WhatsApp) <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -224,12 +224,12 @@ export const CheckoutModal: React.FC = () => {
                     placeholder="e.g. 98401 23456"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="text-xs font-semibold text-stone-700 block mb-1">
+                  <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                     Email Address (Optional)
                   </label>
                   <input
@@ -237,7 +237,7 @@ export const CheckoutModal: React.FC = () => {
                     placeholder="e.g. suresh@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                   />
                 </div>
               </div>
@@ -245,13 +245,13 @@ export const CheckoutModal: React.FC = () => {
 
             {/* Section 2: Delivery Address */}
             <div className="space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#C85A32]" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#826A62] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#EA580C]" />
                 Delivery Location
               </h3>
               <div className="space-y-3">
                 <div>
-                  <label className="text-xs font-semibold text-stone-700 block mb-1">
+                  <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                     Flat / House No. / Street Address <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -260,13 +260,13 @@ export const CheckoutModal: React.FC = () => {
                     placeholder="e.g. Flat 4B, Kaveri Apartments, 2nd Cross Street"
                     value={addressLine}
                     onChange={(e) => setAddressLine(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="text-xs font-semibold text-stone-700 block mb-1">
+                    <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                       Landmark
                     </label>
                     <input
@@ -274,12 +274,12 @@ export const CheckoutModal: React.FC = () => {
                       placeholder="e.g. Opp. Apollo Pharmacy"
                       value={landmark}
                       onChange={(e) => setLandmark(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-stone-700 block mb-1">
+                    <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                       City <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -287,12 +287,12 @@ export const CheckoutModal: React.FC = () => {
                       required
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-stone-700 block mb-1">
+                    <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                       Pincode <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -300,13 +300,13 @@ export const CheckoutModal: React.FC = () => {
                       required
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold text-stone-700 block mb-1">
+                  <label className="text-xs font-semibold text-[#6E564F] block mb-1">
                     Delivery Instructions (Optional)
                   </label>
                   <input
@@ -314,7 +314,7 @@ export const CheckoutModal: React.FC = () => {
                     placeholder="e.g. Leave at security, ring bell twice..."
                     value={instructions}
                     onChange={(e) => setInstructions(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 bg-white text-sm text-stone-900 focus:outline-none focus:border-[#183928] focus:ring-1 focus:ring-[#183928]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#F2DDD0] bg-white text-sm text-[#231815] focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C]"
                   />
                 </div>
               </div>
@@ -322,8 +322,8 @@ export const CheckoutModal: React.FC = () => {
 
             {/* Section 3: Payment Choice */}
             <div className="space-y-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-600 flex items-center gap-1.5">
-                <CreditCard className="w-3.5 h-3.5 text-[#C85A32]" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#826A62] flex items-center gap-1.5">
+                <CreditCard className="w-3.5 h-3.5 text-[#EA580C]" />
                 Payment Method
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -331,60 +331,60 @@ export const CheckoutModal: React.FC = () => {
                   onClick={() => setPaymentMethod('whatsapp')}
                   className={`p-3 rounded-2xl border cursor-pointer transition-all flex flex-col items-center text-center gap-1.5 ${
                     paymentMethod === 'whatsapp'
-                      ? 'bg-[#EBF7F0] border-[#25D366] text-[#128C7E] ring-2 ring-[#25D366]/30 shadow-xs'
-                      : 'bg-white border-stone-200 hover:border-stone-300 text-stone-700'
+                      ? 'bg-[#FDEEE4] border-[#EA580C] text-[#941B1B] ring-2 ring-[#EA580C]/30 shadow-xs'
+                      : 'bg-white border-[#F2DDD0] hover:border-[#EA580C]/40 text-[#231815]'
                   }`}
                 >
-                  <MessageCircle className="w-5 h-5 fill-current" />
+                  <MessageCircle className="w-5 h-5 text-[#25D366] fill-[#25D366]" />
                   <span className="text-xs font-bold">WhatsApp Confirmation</span>
-                  <span className="text-[10px] text-stone-500 leading-tight">Pay on WhatsApp bill link</span>
+                  <span className="text-[10px] text-[#826A62] leading-tight">Pay on WhatsApp bill link</span>
                 </div>
 
                 <div
                   onClick={() => setPaymentMethod('cod')}
                   className={`p-3 rounded-2xl border cursor-pointer transition-all flex flex-col items-center text-center gap-1.5 ${
                     paymentMethod === 'cod'
-                      ? 'bg-[#EBF7F0] border-[#25D366] text-[#128C7E] ring-2 ring-[#25D366]/30 shadow-xs'
-                      : 'bg-white border-stone-200 hover:border-stone-300 text-stone-700'
+                      ? 'bg-[#FDEEE4] border-[#EA580C] text-[#941B1B] ring-2 ring-[#EA580C]/30 shadow-xs'
+                      : 'bg-white border-[#F2DDD0] hover:border-[#EA580C]/40 text-[#231815]'
                   }`}
                 >
-                  <Banknote className="w-5 h-5" />
+                  <Banknote className="w-5 h-5 text-[#EA580C]" />
                   <span className="text-xs font-bold">Cash on Delivery</span>
-                  <span className="text-[10px] text-stone-500 leading-tight">Pay cash at doorstep</span>
+                  <span className="text-[10px] text-[#826A62] leading-tight">Pay cash at doorstep</span>
                 </div>
 
                 <div
                   onClick={() => setPaymentMethod('upi')}
                   className={`p-3 rounded-2xl border cursor-pointer transition-all flex flex-col items-center text-center gap-1.5 ${
                     paymentMethod === 'upi'
-                      ? 'bg-[#EBF7F0] border-[#25D366] text-[#128C7E] ring-2 ring-[#25D366]/30 shadow-xs'
-                      : 'bg-white border-stone-200 hover:border-stone-300 text-stone-700'
+                      ? 'bg-[#FDEEE4] border-[#EA580C] text-[#941B1B] ring-2 ring-[#EA580C]/30 shadow-xs'
+                      : 'bg-white border-[#F2DDD0] hover:border-[#EA580C]/40 text-[#231815]'
                   }`}
                 >
-                  <QrCode className="w-5 h-5" />
+                  <QrCode className="w-5 h-5 text-[#EA580C]" />
                   <span className="text-xs font-bold">UPI QR Code</span>
-                  <span className="text-[10px] text-stone-500 leading-tight">GPay / PhonePe / Paytm</span>
+                  <span className="text-[10px] text-[#826A62] leading-tight">GPay / PhonePe / Paytm</span>
                 </div>
               </div>
             </div>
 
             {/* Section 4: Compact Order Summary */}
-            <div className="bg-[#F4ECE1] p-4 rounded-2xl border border-[#E8DFC8] space-y-2 text-xs">
-              <h4 className="font-bold text-stone-900 text-sm flex items-center justify-between">
+            <div className="bg-[#FCF8F5] p-4 rounded-2xl border border-[#F2DDD0] space-y-2 text-xs">
+              <h4 className="font-bold text-[#231815] text-sm flex items-center justify-between">
                 <span>Order Summary ({cart.length} items)</span>
-                <span className="text-[#183928] font-extrabold text-base">₹{cartTotal}</span>
+                <span className="text-[#941B1B] font-extrabold text-base">₹{cartTotal}</span>
               </h4>
-              <div className="divide-y divide-[#E5D8C6] pt-1">
+              <div className="divide-y divide-[#F2DDD0] pt-1">
                 {cart.map((item) => (
-                  <div key={item.id} className="py-1.5 flex justify-between text-stone-700">
+                  <div key={item.id} className="py-1.5 flex justify-between text-[#6E564F]">
                     <span className="truncate max-w-[240px]">
                       {item.product.name} × {item.quantity}
                     </span>
-                    <span className="font-semibold">₹{item.total_price}</span>
+                    <span className="font-semibold text-[#231815]">₹{item.total_price}</span>
                   </div>
                 ))}
               </div>
-              <div className="pt-2 border-t border-[#DECBB6] space-y-1 text-stone-600">
+              <div className="pt-2 border-t border-[#F2DDD0] space-y-1 text-[#6E564F]">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span>₹{cartSubtotal}</span>
@@ -405,19 +405,19 @@ export const CheckoutModal: React.FC = () => {
           </div>
 
           {/* Checkout Modal Footer */}
-          <div className="p-5 bg-white border-t border-[#E8DFC8] flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
+          <div className="p-5 bg-white border-t border-[#F2DDD0] flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
             <div>
-              <p className="text-xs text-stone-500">Total payable amount</p>
-              <p className="text-2xl font-serif font-bold text-[#183928]">₹{cartTotal}</p>
+              <p className="text-xs text-[#826A62]">Total payable amount</p>
+              <p className="text-2xl font-serif font-bold text-[#941B1B]">₹{cartTotal}</p>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
               id="confirm-whatsapp-order-btn"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#25D366] text-stone-900 hover:bg-[#1EBE5D] font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-lg active:scale-95 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#25D366] text-white hover:bg-[#1EBE5D] font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-lg active:scale-95 transition-all cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5 fill-stone-900" />
+              <MessageCircle className="w-5 h-5 fill-current" />
               <span>Send Order on WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </button>
